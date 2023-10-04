@@ -43,7 +43,7 @@ public class AirportRepository {
     }
 
     public double getShortestDurationOfPossibleBetweenTwoCities(City fromCity, City toCity) {
-        Double duration = Double.MAX_VALUE;
+        double duration = Double.MAX_VALUE;
         for (Flight f : Flightdb.values()) {
             if ((f.getFromCity().equals(fromCity)) && (f.getToCity().equals(toCity))) {
                 if (f.getDuration() < duration) {
@@ -136,7 +136,7 @@ public class AirportRepository {
 
             List<Integer> passengers  = entry.getValue();
             for(Integer passenger : passengers){
-                if(passenger==passengerId){
+                if(passenger.equals(passengerId)){
                     count++;
                 }
             }
@@ -158,8 +158,9 @@ public class AirportRepository {
 
     public int calculateRevenueOfAFlight(Integer flightId) {
         int noOfPeopleBooked = FlightToPassengerdb.get(flightId).size();
-        int totalRevenue = (25 * noOfPeopleBooked * noOfPeopleBooked) + (2975 * noOfPeopleBooked);
+      //  int totalRevenue =
+             return   (25 * noOfPeopleBooked * noOfPeopleBooked) + (2975 * noOfPeopleBooked);
 
-        return totalRevenue;
+      //  return totalRevenue;
     }
 }
